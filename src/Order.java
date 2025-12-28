@@ -1,7 +1,6 @@
 import java.util.Arrays;
 import java.util.Objects;
 
-// Класс Order
 class Order {
     private String customer; // Заказчик
     private Product[] basket; // Массив продуктов
@@ -26,6 +25,7 @@ class Order {
         Order order = (Order) obj;
         if (!Objects.equals(customer, order.customer)) return false;
         if (basket == null && order.basket != null || basket != null && order.basket == null) return false;
+        if (basket == null && order.basket == null) return true; // Если оба массива null, считаем равными
         if (basket.length != order.basket.length) return false;
         for (int i = 0; i < basket.length; i++) {
             if (basket[i] == null && order.basket[i] != null || basket[i] != null && order.basket[i] == null) {
