@@ -24,8 +24,12 @@ class Product {
     // Переопределение метода equals()
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
         Product product = (Product) obj;
         return id == product.id && Objects.equals(category, product.category);
     }

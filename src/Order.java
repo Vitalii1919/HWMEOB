@@ -21,13 +21,25 @@ class Order {
     // Переопределение метода equals()
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
         Order order = (Order) obj;
-        if (!Objects.equals(customer, order.customer)) return false;
-        if (basket == null && order.basket != null || basket != null && order.basket == null) return false;
-        if (basket == null && order.basket == null) return true; // Если оба массива null, считаем равными
-        if (basket.length != order.basket.length) return false;
+        if (!Objects.equals(customer, order.customer)) {
+            return false;
+        }
+        if (basket == null && order.basket != null || basket != null && order.basket == null) {
+            return false;
+        }
+        if (basket == null && order.basket == null) {
+            return true; // Если оба массива null, считаем равными
+        }
+        if (basket.length != order.basket.length) {
+            return false;
+        }
         for (int i = 0; i < basket.length; i++) {
             if (basket[i] == null && order.basket[i] != null || basket[i] != null && order.basket[i] == null) {
                 return false;
